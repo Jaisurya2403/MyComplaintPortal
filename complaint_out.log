@@ -1,0 +1,15 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-09-15T23:38:49.422+05:30  INFO 5904 --- [complaint-service] [           main] c.m.c.ComplaintServiceApplication        : Starting ComplaintServiceApplication using Java 21.0.11 with PID 5904 (C:\Users\Karthikeyan_06\Documents\ai-grienace-tracking-and-redressal-system\ai-grienace-tracking-and-redressal-system\backend\complaint-service\target\classes started by Karthikeyan_06 in C:\Users\Karthikeyan_06\Documents\ai-grienace-tracking-and-redressal-system\ai-grienace-tracking-and-redressal-system\backend\complaint-service)
+2026-09-15T23:38:49.426+05:30 DEBUG 5904 --- [complaint-service] [           main] c.m.c.ComplaintServiceApplication        : Running with Spring Boot v3.2.3, Spring v6.1.4
+2026-09-15T23:38:49.427+05:30  INFO 5904 --- [complaint-service] [           main] c.m.c.ComplaintServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-09-15T23:38:50.434+05:30  INFO 5904 --- [complaint-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-15T23:38:50.575+05:30  INFO 5904 --- [complaint-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130 ms. Found 3 JPA repository interfaces.
+2026-09-15T23:38:50.883+05:30  INFO 5904 --- [complaint-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=86703c40-f551-3b20-82aa-496814321aee
