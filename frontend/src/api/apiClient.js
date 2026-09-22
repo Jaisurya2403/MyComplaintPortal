@@ -22,34 +22,34 @@ const getHeaders = (isJson = true) => {
 };
 
 const smartFetch = async (path, options = {}) => {
-  const primaryUrl = `${BASE_URL}${path}`;
+  let targetBase = null;
+  for (const [prefix, base] of Object.entries(SERVICE_PORTS)) {
+    if (path.startsWith(prefix) && base && !base.includes('localhost')) {
+      targetBase = base;
+      break;
+    }
+  }
+
+  const primaryUrl = targetBase ? `${targetBase}${path}` : `${BASE_URL}${path}`;
   try {
     const res = await fetch(primaryUrl, options);
     if (res.status !== 500 && res.status !== 503) {
       return res;
     }
+    return res;
   } catch (e) {
-    // Gateway connection failed
-  }
-
-  let directBase = null;
-  for (const [prefix, base] of Object.entries(SERVICE_PORTS)) {
-    if (path.startsWith(prefix)) {
-      directBase = base;
-      break;
+    // Retry fallback if primary failed
+    for (const [prefix, base] of Object.entries(SERVICE_PORTS)) {
+      if (path.startsWith(prefix) && base !== targetBase) {
+        try {
+          return await fetch(`${base}${path}`, options);
+        } catch (err) {
+          // ignore
+        }
+      }
     }
+    return await fetch(primaryUrl, options);
   }
-
-  if (directBase) {
-    const fallbackUrl = `${directBase}${path}`;
-    try {
-      return await fetch(fallbackUrl, options);
-    } catch (err) {
-      // Fallback failed as well
-    }
-  }
-
-  return await fetch(primaryUrl, options);
 };
 
 const handleResponse = async (res) => {
