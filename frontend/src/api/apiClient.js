@@ -1,12 +1,12 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9999/api';
 
 const SERVICE_PORTS = {
-  '/auth': 'http://localhost:8081/api',
-  '/users': 'http://localhost:8082/api',
-  '/complaints': 'http://localhost:8083/api',
-  '/departments': 'http://localhost:8084/api',
-  '/admins': 'http://localhost:8084/api',
-  '/images': 'http://localhost:8087/api',
+  '/auth': import.meta.env.VITE_AUTH_SERVICE_URL || 'http://localhost:8081/api',
+  '/users': import.meta.env.VITE_USER_SERVICE_URL || 'http://localhost:8082/api',
+  '/complaints': import.meta.env.VITE_COMPLAINT_SERVICE_URL || 'http://localhost:8083/api',
+  '/departments': import.meta.env.VITE_DEPT_SERVICE_URL || 'http://localhost:8084/api',
+  '/admins': import.meta.env.VITE_DEPT_SERVICE_URL || 'http://localhost:8084/api',
+  '/images': import.meta.env.VITE_IMAGE_SERVICE_URL || 'http://localhost:8087/api',
 };
 
 const getHeaders = (isJson = true) => {
