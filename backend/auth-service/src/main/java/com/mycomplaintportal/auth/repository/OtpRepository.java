@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface OtpRepository extends JpaRepository<OtpVerification, Long> {
+public interface OtpRepository extends JpaRepository<OtpVerification, String> {
 
     @Query("SELECT o FROM OtpVerification o WHERE LOWER(o.email) = LOWER(:email) AND o.otp = :otp")
     Optional<OtpVerification> findByEmailIgnoreCaseAndOtp(@Param("email") String email, @Param("otp") String otp);
