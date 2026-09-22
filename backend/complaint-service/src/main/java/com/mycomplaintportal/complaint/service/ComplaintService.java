@@ -432,7 +432,7 @@ public class ComplaintService {
                 "  SUM(CASE WHEN STATUS IN ('VISITED', 'Visited') THEN 1 ELSE 0 END) AS TOTAL_VISITED, " +
                 "  COALESCE(SUM(REPOSTS), 0) AS TOTAL_REPOSTS, " +
                 "  COALESCE(SUM(UPVOTES), 0) AS TOTAL_UPVOTES, " +
-                "  SUM(CASE WHEN CREATED_AT >= TRUNC(SYSDATE) THEN 1 ELSE 0 END) AS TOTAL_TODAY, " +
+                "  SUM(CASE WHEN CREATED_AT >= CURDATE() THEN 1 ELSE 0 END) AS TOTAL_TODAY, " +
                 "  SUM(CASE WHEN WAS_REDIRECTED = 1 THEN 1 ELSE 0 END) AS TOTAL_REDIRECTED, " +
                 "  SUM(CASE WHEN IS_REPORTED = 1 THEN 1 ELSE 0 END) AS TOTAL_REPORTED " +
                 "FROM COMPLAINTS";

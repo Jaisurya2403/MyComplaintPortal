@@ -14,18 +14,12 @@ public class ComplaintServiceApplication {
     }
 
     @org.springframework.context.annotation.Bean
-    public org.springframework.boot.CommandLineRunner fixOracleConstraints(javax.sql.DataSource dataSource) {
+    public org.springframework.boot.CommandLineRunner databaseInitRunner(javax.sql.DataSource dataSource) {
         return args -> {
-            try (java.sql.Connection conn = dataSource.getConnection();
-                 java.sql.Statement stmt = conn.createStatement()) {
-                try {
-                    stmt.execute("ALTER TABLE COMPLAINTS DROP CONSTRAINT SYS_C007822");
-                    System.out.println("✅ Successfully dropped SYS_C007822");
-                } catch (Exception e) {
-                    System.out.println("SYS_C007822 notice: " + e.getMessage());
-                }
+            try (java.sql.Connection conn = dataSource.getConnection()) {
+                System.out.println("✅ Database Connection Established: " + conn.getMetaData().getDatabaseProductName());
             } catch (Exception e) {
-                System.out.println("Constraint notice: " + e.getMessage());
+                System.out.println("Database init notice: " + e.getMessage());
             }
         };
     }

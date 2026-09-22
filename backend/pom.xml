@@ -9,7 +9,7 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>MyComplaintPortal Backend Parent</name>
-    <description>Spring Boot Microservices REST Backend for MyComplaintPortal with Oracle DB, MongoDB GridFS, Eureka, and AI Vision Module</description>
+    <description>Spring Boot Microservices REST Backend for MyComplaintPortal with MySQL DB, MongoDB GridFS, Eureka, and AI Vision Module</description>
 
     <modules>
         <module>eureka-server</module>
